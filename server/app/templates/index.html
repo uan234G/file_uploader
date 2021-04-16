@@ -9,11 +9,21 @@
 </head>
 
 <body>
+    <h1>Upload IMAGE</h1>
+    <form action="/upload" method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        <label>File Name</label>
+        <input name="file_name">
+        <label>Upload File</label>
+        <input type="file" name="image">
+        <button type="submit">Submit</button>
+    </form>
     <h1>Uploaded Images</h1>
     {%for file in all_files %}
     <p>{{file.file_name}}</p>
-    <img src="{{file.image.url}}" alt="">
+    <img src="{{file.image.url}}" style="height: 400px; width: 400px;">
     {% endfor %}
+
 </body>
 
 </html>
