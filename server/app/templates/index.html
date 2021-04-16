@@ -10,6 +10,10 @@
 
 <body>
     <h1>Uploaded Images</h1>
+    {%for file in all_files %}
+    <p>{{file.file_name}}</p>
+    <img src="{{file.image.url}}" alt="">
+    {% endfor %}
 </body>
 
 </html>
